@@ -1,1 +1,30 @@
 
+spring:
+  application:
+    name: pre-sales-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customer
+    username: ada-lovelace
+    password: cielo123
+  liquibase:
+    change-log: classpath:/db/changelog-master.yaml
+  jpa:
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    properties:
+      hibernate:
+        show_sql: true
+        hbm2ddl:
+          auto: update
+          format_sql: true
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+server:
+  servlet:
+    context-path: /api/v3

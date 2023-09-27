@@ -1,2 +1,5 @@
 ### Idea ###
 .idea
+
+### Generated Sources ###
+/out/*
