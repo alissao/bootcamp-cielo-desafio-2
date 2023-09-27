@@ -22,9 +22,6 @@ spring:
     init:
       mode: always
       continue-on-error: true
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
 server:
   servlet:
     context-path: /api/v3
