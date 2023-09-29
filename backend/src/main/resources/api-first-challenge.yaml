@@ -193,7 +193,7 @@ paths:
     get:
       tags:
         - sales
-      summary: Find customer information on his queues
+      summary: Find customer queue information
       description: For valid response try integer UUID's
       operationId: checkCustomerQueue
       parameters:
@@ -202,8 +202,8 @@ paths:
           description: ID of customer that needs to be checked
           required: true
           schema:
-            type: object
-            format: string
+            type: string
+            format: uuid
             example: 550e8400-e29b-41d4-a716-446655440000
       responses:
         '200':
@@ -219,15 +219,10 @@ components:
     RepresentativeRequest:
       type: object
       properties:
-        id:
-          type: object
-          format: string
-          example: 550e8400-e29b-41d4-a716-446655440000
         customerId:
           type: string
+          format: uuid
           example: 550e8400-e29b-41d4-a716-446655440000
-          items:
-            $ref: '#/components/schemas/Customer'
     EnqueueResponse:
       type: object
       properties:
@@ -242,9 +237,9 @@ components:
       type: object
       properties:
         id:
-          type: integer
-          format: int64
-          example: 100000
+          type: string
+          format: uuid
+          example: 550e8400-e29b-41d4-a716-446655440000
         username:
           type: string
           example: fehguy
@@ -284,14 +279,12 @@ components:
         name:
           type: string
           example: Clothes
-      xml:
-        name: category
     User:
       type: object
       properties:
         id:
-          type: object
-          format: string
+          type: string
+          format: uuid
           example: 550e8400-e29b-41d4-a716-446655440000
         username:
           type: string
@@ -313,7 +306,7 @@ components:
           example: '12345'
         userStatus:
           type: integer
-          description: User Status
+          description: online or offline
           format: int32
           example: 1
     ErrorResponse:
